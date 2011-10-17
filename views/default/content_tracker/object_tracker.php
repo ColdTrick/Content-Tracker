@@ -12,11 +12,13 @@
 				
 				if(content_tracker_check_relationship($object_guid))
 				{
-					add_submenu_item(elgg_echo('content_tracker:menu:untrack_object'), 	elgg_add_action_tokens_to_url($CONFIG->wwwroot . "action/content_tracker/object/untrack?guid=" . $object_guid));
+					add_submenu_item(elgg_echo('content_tracker:menu:untrack_object'),													//Added 0_ for ordering 
+						elgg_add_action_tokens_to_url($CONFIG->wwwroot . "action/content_tracker/object/untrack?guid=" 	. $object_guid), '0_content_tracker');
 				}
 				else
 				{
-					add_submenu_item(elgg_echo('content_tracker:menu:track_object'), 	elgg_add_action_tokens_to_url($CONFIG->wwwroot . "action/content_tracker/object/track?guid=" . $object_guid));
+					add_submenu_item(elgg_echo('content_tracker:menu:track_object'),													//Added 0_ for ordering
+						elgg_add_action_tokens_to_url($CONFIG->wwwroot . "action/content_tracker/object/track?guid=" 	. $object_guid), '0_content_tracker');
 				}
 			}
 		}
