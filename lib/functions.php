@@ -32,32 +32,41 @@
 		return check_entity_relationship($object_guid, $relationship, $user_guid);
 	}
 	
-	function content_tracker_get_tracked_items_by_user($user_guid = null)
+	function content_tracker_get_tracked_items_by_user($user_guid = null, $limit = false)
 	{
 		if(!$user_guid)
 		{
 			$user_guid = get_loggedin_userid();
+		}
+		
+		if($limit)
+		{
+			$order_by = 'r.time_created DESC';
+		}
+		else
+		{
+			$order_by = 'subtype';
 		}
 		
 		$tracking_entities = elgg_get_entities_from_relationship(array(
 																	'relationship' 			=> CONTENT_TRACKER_TRACKING_OBJECT, 
 																	'relationship_guid' 	=> $user_guid,
 																	'inverse_relationship' 	=> true,
-		 															'order_by'				=> 'subtype',
-																	'limit'					=> false,
+		 															'order_by'				=> $order_by,
+																	'limit'					=> $limit,
 																));
 		
 		return $tracking_entities;
 	}
 	
-	function content_tracker_list_tracked_items_by_user($user_guid = null)
+	function content_tracker_list_tracked_items_by_user($user_guid = null, $limit = false)
 	{
 		if(!$user_guid)
 		{
 			$user_guid = get_loggedin_userid();
 		}
 		
-		$tracking_entities = content_tracker_get_tracked_items_by_user($user_guid);
+		$tracking_entities = content_tracker_get_tracked_items_by_user($user_guid, $limit);
 		
 		$result = '';
 		

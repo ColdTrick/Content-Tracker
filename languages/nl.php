@@ -29,6 +29,11 @@
 
 		'content_tracker:notifications:topicpost:subject' => 'Er is een nieuwe topic post op "%s"',
 		'content_tracker:notifications:topicpost:message' => 'Er is een nieuwe topic post op "%s" (%s)',
+	
+		//Widget
+		'content_tracker:widget:view:more_tracked_content' 	=> 'Meer gevolgde content',
+		'content_tracker:widget:edit:numertodisplay' 		=> 'Aantal weer te geven items',
+		'content_tracker:widget:discription'				=> 'Lijst met gevolgde content',
 
 		//Usersettings
 		'content_tracker:usersettings:notify_comment' => 'Automatisch alle content volgen waar ik op reageer',

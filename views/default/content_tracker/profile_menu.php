@@ -1,0 +1,1 @@
+<a href="<?php echo CONTENT_TRACKER_BASEURL;?>"><?php echo elgg_echo('content_tracker:menu:profile');?></a>

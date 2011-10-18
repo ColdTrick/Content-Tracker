@@ -22,6 +22,8 @@
 		register_elgg_event_handler('create', 'annotation', 'content_tracker_track_object_after_comment');
 
 		elgg_extend_view('css', 'content_tracker/css');
+		
+		add_widget_type('content_tracker', elgg_echo("content_tracker"), elgg_echo("content_tracker:widget:discription"));
 	}
 
 	function content_tracker_pagesetup()

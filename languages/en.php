@@ -29,6 +29,11 @@
 
 		'content_tracker:notifications:topicpost:subject' => 'There is a new post on "%s"',
 		'content_tracker:notifications:topicpost:message' => 'There is a new post on "%s" (%s)',
+	
+		//Widget
+		'content_tracker:widget:view:more_tracked_content' 	=> 'More tracked content',
+		'content_tracker:widget:edit:numertodisplay' 		=> 'Number of items to display',
+		'content_tracker:widget:discription'				=> 'List of tracked content',
 
 		//Usersettings
 		'content_tracker:usersettings:notify_comment' => 'Automatically keep track of items I commented on',
