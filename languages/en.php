@@ -6,6 +6,7 @@
 
 		//Menu items
 		'content_tracker:menu:title'			=> 'Content Tracker',
+		'content_tracker:menu:profile'			=> 'Tracked content',
 		'content_tracker:menu:track_object' 	=> 'Track this item',
 		'content_tracker:menu:untrack_object' 	=> 'Untrack this item',
 		'content_tracker:menu:untrack' 			=> 'Untrack',

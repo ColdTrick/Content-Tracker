@@ -6,6 +6,7 @@
 
 		//Menu items
 		'content_tracker:menu:title'			=> 'Content Tracker',
+		'content_tracker:menu:profile'			=> 'Gevolgde content',
 		'content_tracker:menu:track_object' 	=> 'Volg dit',
 		'content_tracker:menu:untrack_object' 	=> 'Niet meer volgen',
 		'content_tracker:menu:untrack' 			=> 'Niet meer volgen',

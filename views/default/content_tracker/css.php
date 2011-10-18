@@ -61,7 +61,5 @@
 
 .content_tracker_confirm_untrackall
 {
-	float: right;
-	margin-right: 20px;
-	line-height: 40px; 
+	text-align: right;
 }

@@ -39,8 +39,7 @@
 			$user_guid = get_loggedin_userid();
 		}
 		
-		$tracking_entities = elgg_get_entities_from_relationship(array(	
-																	'site_guid' 			=> false,
+		$tracking_entities = elgg_get_entities_from_relationship(array(
 																	'relationship' 			=> CONTENT_TRACKER_TRACKING_OBJECT, 
 																	'relationship_guid' 	=> $user_guid,
 																	'inverse_relationship' 	=> true,
@@ -109,13 +108,16 @@
 	
 	function content_tracker_notify_all_trackers_by_object($object_guid, $event_type)
 	{
-		global $CONFIG;
+		global $CONFIG, $ENTITY_CACHE, $DB_PROFILE;
 		
-					
-		if($trackers = content_tracker_get_trackers_by_object($object_guid))
-		{
-			$object = get_entity($object_guid);
+		$entity_cache_backup = $ENTITY_CACHE;
+		
+		set_time_limit(0);		
+				
+		$object = get_entity($object_guid);
 			
+		if($trackers = content_tracker_get_trackers_by_object($object_guid))
+		{			
 			if($event_type == 'update')
 			{
 				$subject = sprintf(elgg_echo('content_tracker:notifications:updated_object:subject'), $CONFIG->sitename);
@@ -136,7 +138,6 @@
 					$message = sprintf(elgg_echo('content_tracker:notifications:comment:message'), $object->title, $object->getURL());
 				}
 			}
-			
 					
 			foreach($trackers as $user)
 			{
@@ -146,4 +147,9 @@
 				}
 			}
 		}
+		
+		invalidate_cache_for_entity($object->getGUID());
+		
+		$ENTITY_CACHE = $entity_cache_backup;
+		$DB_PROFILE = null;
 	}

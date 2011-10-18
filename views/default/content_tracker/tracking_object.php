@@ -18,7 +18,7 @@
 	
 		<!-- <img title="<?php echo ucfirst($tracking_object->getSubtype()); ?>" alt="<?php echo ucfirst($tracking_object->getSubtype());?>: " src="<?php echo $graphics_folder; ?>icons/object/<?php echo $tracking_object->getSubtype(); ?>.png" />-->
 		
-		<div class="content_tracker_tracking_object_subtype"><?php echo ucfirst($subtype); ?></div>
+		<div class="content_tracker_tracking_object_subtype"><?php echo elgg_echo('item:object:'.$subtype); ?></div>
 		
 		<!--  <div class="content_tracker_tracking_object_since"><?php echo elgg_view('output/friendlytime', array('time' => $relationship->time_created)); ?></div> -->
 		

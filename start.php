@@ -6,8 +6,8 @@
 	define('CONTENT_TRACKER_UNTRACKING_OBJECT', 			'user_untracking_content_object');
 	define('CONTENT_TRACKER_TRACKING_OBJECT_BY_COMMENT', 	'user_tracking_content_object_by_comment');
 
-	include_once(dirname(__FILE__).'/lib/functions.php');
-	include_once(dirname(__FILE__).'/lib/events.php');
+	include_once(dirname(__FILE__) . '/lib/functions.php');
+	include_once(dirname(__FILE__) . '/lib/events.php');
 
 	function content_tracker_init()
 	{
@@ -16,6 +16,7 @@
 		register_page_handler('content_tracker', 'content_tracker_page_handler');
 
 		add_menu(elgg_echo("content_tracker:menu:title"), CONTENT_TRACKER_BASEURL);
+		elgg_extend_view('profile/menu/linksownpage', 'content_tracker/profile_menu');
 
 		register_elgg_event_handler('update', 'object', 	'content_tracker_notify_from_object');
 		register_elgg_event_handler('create', 'annotation', 'content_tracker_track_object_after_comment');
@@ -49,16 +50,16 @@
 		
 		//if(!empty($page))
 		{
-			
+
 		}
 		//else
 		{
 			include(dirname(__FILE__) . $include);
 		}
 	}
-	
+
 	register_elgg_event_handler('init', 		'system', 	'content_tracker_init');
 	register_elgg_event_handler('pagesetup', 	'system', 	'content_tracker_pagesetup');
-	
+
 	register_action('content_tracker/object/track', 	false, dirname(__FILE__) . '/actions/object/track.php');
 	register_action('content_tracker/object/untrack', 	false, dirname(__FILE__) . '/actions/object/untrack.php');
